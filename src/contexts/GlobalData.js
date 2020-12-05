@@ -472,7 +472,7 @@ const TOKENS_TO_FETCH = 500
 /**
  * Loop through every pair on uniswap, used for search
  */
-async function getAllPairsOnUniswap() {
+async function getAllPairsOnStableXswap() {
   try {
     let allFound = false
     let pairs = []
@@ -500,7 +500,7 @@ async function getAllPairsOnUniswap() {
 /**
  * Loop through every token on uniswap, used for search
  */
-async function getAllTokensOnUniswap() {
+async function getAllTokensOnStableXswap() {
   try {
     let allFound = false
     let skipCount = 0
@@ -539,10 +539,10 @@ export function useGlobalData() {
       let globalData = await getGlobalData(ethPrice, oldEthPrice)
       globalData && update(globalData)
 
-      let allPairs = await getAllPairsOnUniswap()
+      let allPairs = await getAllPairsOnStableXswap()
       updateAllPairsInStableXswap(allPairs)
 
-      let allTokens = await getAllTokensOnUniswap()
+      let allTokens = await getAllTokensOnStableXswap()
       updateAllTokensInStableXswap(allTokens)
     }
     if (!data && ethPrice && oldEthPrice) {

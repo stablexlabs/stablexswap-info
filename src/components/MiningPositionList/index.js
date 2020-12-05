@@ -44,7 +44,7 @@ const DashGrid = styled.div`
   display: grid;
   grid-gap: 1em;
   grid-template-columns: 5px 0.5fr 1fr;
-  grid-template-areas: 'number name uniswap';
+  grid-template-areas: 'number name stablexswap';
   align-items: flex-start;
   padding: 20px 0;
 
@@ -61,17 +61,17 @@ const DashGrid = styled.div`
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 35px 2.5fr 1fr;
-    grid-template-areas: 'number name uniswap';
+    grid-template-areas: 'number name stablexswap';
   }
 
   @media screen and (max-width: 740px) {
     grid-template-columns: 2.5fr 1fr;
-    grid-template-areas: 'name uniswap';
+    grid-template-areas: 'name stablexswap';
   }
 
   @media screen and (max-width: 500px) {
     grid-template-columns: 2.5fr 1fr;
-    grid-template-areas: 'name uniswap';
+    grid-template-areas: 'name stablexswap';
   }
 `
 
@@ -170,7 +170,7 @@ function MiningPositionList({ miningPositions }) {
             </RowFixed>
           </AutoColumn>
         </DataText>
-        <DataText area="uniswap">
+        <DataText area="stablexswap">
           <AutoColumn gap="12px" justify="flex-end">
             <TYPE.main>{formattedNum(pairPercentage * valueUSD, true, true)}</TYPE.main>
             <AutoColumn gap="4px" justify="flex-end">

@@ -72,12 +72,12 @@ export function getMiningPoolLink(token0Address) {
 }
 
 export function getStableXswapAppLink(linkVariable) {
-  let baseUniswapUrl = 'https://trade.stablexswap.com'
+  let baseStableXswapUrl = 'https://trade.stablexswap.com'
   if (!linkVariable) {
-    return baseUniswapUrl
+    return baseStableXswapUrl
   }
 
-  return `${baseUniswapUrl}/BUSD/${linkVariable}`
+  return `${baseStableXswapUrl}/BUSD/${linkVariable}`
 }
 // TODO: Confirm that dropping the ETH for BUSD is ok if it just has one less variable for the input
 // If so, can remove the BUSD as well
