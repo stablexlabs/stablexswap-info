@@ -22,11 +22,11 @@ function formatPercent(rawPercent) {
     return '<1%'
   } else return parseFloat(rawPercent * 100).toFixed(0) + '%'
 }
-
+// Updated addresses to the BUSD pairs on StableXswap
 export default function UniPrice() {
-  const daiPair = usePairData('0xa478c2975ab1ea89e8196811f51a7b7ade33eb11')
-  const usdcPair = usePairData('0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc')
-  const usdtPair = usePairData('0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852')
+  const daiPair = usePairData('0x438A242B9774c6D562d43fA2c1410dc9d9dE3281')
+  const usdcPair = usePairData('0x596153012423c0EC40df98B2C2bE57262e748872')
+  const usdtPair = usePairData('0x751c835A04DC3D71B085263800488A59Cbf48dfE')
 
   const totalLiquidity = useMemo(() => {
     return daiPair && usdcPair && usdtPair
@@ -34,27 +34,27 @@ export default function UniPrice() {
       : 0
   }, [daiPair, usdcPair, usdtPair])
 
-  const daiPerEth = daiPair ? parseFloat(daiPair.token0Price).toFixed(2) : '-'
-  const usdcPerEth = usdcPair ? parseFloat(usdcPair.token0Price).toFixed(2) : '-'
-  const usdtPerEth = usdtPair ? parseFloat(usdtPair.token1Price).toFixed(2) : '-'
+  const daiPerBUSD = daiPair ? parseFloat(daiPair.token0Price).toFixed(2) : '-'
+  const usdcPerBUSD = usdcPair ? parseFloat(usdcPair.token0Price).toFixed(2) : '-'
+  const usdtPerBUSD = usdtPair ? parseFloat(usdtPair.token1Price).toFixed(2) : '-'
 
   return (
     <PriceCard>
       <AutoColumn gap="10px">
         <RowFixed>
-          <TYPE.main>DAI/ETH: {formattedNum(daiPerEth, true)}</TYPE.main>
+          <TYPE.main>DAI/BUSD: {formattedNum(daiPerBUSD, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
             {daiPair && totalLiquidity ? formatPercent(daiPair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
         </RowFixed>
         <RowFixed>
-          <TYPE.main>USDC/ETH: {formattedNum(usdcPerEth, true)}</TYPE.main>
+          <TYPE.main>USDC/BUSD: {formattedNum(usdcPerBUSD, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
             {usdcPair && totalLiquidity ? formatPercent(usdcPair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
         </RowFixed>
         <RowFixed>
-          <TYPE.main>USDT/ETH: {formattedNum(usdtPerEth, true)}</TYPE.main>
+          <TYPE.main>USDT/BUSD: {formattedNum(usdtPerBUSD, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
             {usdtPair && totalLiquidity ? formatPercent(usdtPair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
