@@ -143,6 +143,8 @@ export async function splitQuery(query, localClient, vars, list, skipCount = 100
  * @dev Query speed is optimized by limiting to a 600-second period
  * @param {Int} timestamp in seconds
  */
+// Need to check that we can find a new way for getting current Block
+
 export async function getBlockFromTimestamp(timestamp) {
   let result = await blockClient.query({
     query: GET_BLOCK,
@@ -166,6 +168,7 @@ export async function getBlocksFromTimestamps(timestamps, skipCount = 500) {
   if (timestamps?.length === 0) {
     return []
   }
+// Need to update Blockclient
 
   let fetchedData = await splitQuery(GET_BLOCKS, blockClient, [], timestamps, skipCount)
 
@@ -298,10 +301,10 @@ export const setThemeColor = (theme) => document.documentElement.style.setProper
 export const Big = (number) => new BigNumber(number)
 
 export const urls = {
-  showTransaction: (tx) => `https://etherscan.io/tx/${tx}/`,
-  showAddress: (address) => `https://www.etherscan.io/address/${address}/`,
-  showToken: (address) => `https://www.etherscan.io/token/${address}/`,
-  showBlock: (block) => `https://etherscan.io/block/${block}/`,
+  showTransaction: (tx) => `https://bscscan.com/tx/${tx}/`,
+  showAddress: (address) => `https://bscscan.com/address/${address}/`,
+  showToken: (address) => `https://bscscan.com/token/${address}/`,
+  showBlock: (block) => `https://bscscan.com/block/${block}/`,
 }
 
 export const formatTime = (unix) => {
