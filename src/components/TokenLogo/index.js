@@ -47,6 +47,7 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
   }
 
   // hard coded fixes for trust wallet api issues
+  // These should not be necessary since we have not these coins on BSC
   if (address?.toLowerCase() === '0x5e74c9036fb86bd7ecdcb084a0673efc32ea31cb') {
     address = '0x42456d7084eacf4083f1140d3229471bba2949a8'
   }
@@ -69,8 +70,8 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
       </StyledEthereumLogo>
     )
   }
-
-  const path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+// Check to add somewhere you can actually get all the png logos
+  const path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/assets/${isAddress(
     address
   )}/logo.png`
 
