@@ -1,6 +1,10 @@
-export const FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+// This is the official StableXswap Factory Address on Binance Smart Chain Mainnet
+export const FACTORY_ADDRESS = '0x918d7e714243F7d9d463C37e106235dCde294ffC'
 
 export const BUNDLE_ID = '1'
+
+
+// So far most of these addresses are not needed
 
 export const timeframeOptions = {
   WEEK: '1 week',
@@ -9,11 +13,10 @@ export const timeframeOptions = {
   // YEAR: '1 year',
   ALL_TIME: 'All time',
 }
-
+// Updated to grab the current stablex list. will need to update of we change the json link later
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 export const SUPPORTED_LIST_URLS__NO_ENS = [
-  'https://gateway.ipfs.io/ipns/tokens.uniswap.org',
-  'https://www.coingecko.com/tokens_list/uniswap/defi_100/v_0_0_0.json',
+  'https://raw.githubusercontent.com/stablexlabs/stablex-swap-interface/master/src/constants/token/pancakeswap.json'
 ]
 
 // hide from overview list
@@ -28,6 +31,6 @@ export const OVERVIEW_TOKEN_BLACKLIST = [
 export const PAIR_BLACKLIST = ['0xb6a741f37d6e455ebcc9f17e2c16d0586c3f57a5']
 
 /**
- * For tokens that cause erros on fee calculations
+ * For tokens that cause errors on fee calculations
  */
 export const FEE_WARNING_TOKENS = ['0xd46ba6d942050d489dbd938a2c909a5d5039a161']
