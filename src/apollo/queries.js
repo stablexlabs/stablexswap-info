@@ -91,7 +91,7 @@ export const POSITIONS_BY_BLOCK = (account, blocks) => {
   queryString += '}'
   return gql(queryString)
 }
-
+// DerivedETH may or may not need to be updated
 export const PRICES_BY_BLOCK = (tokenAddress, blocks) => {
   let queryString = 'query blocks {'
   queryString += blocks.map(
