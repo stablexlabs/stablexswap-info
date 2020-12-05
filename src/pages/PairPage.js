@@ -308,6 +308,8 @@ function PairPage({ pairAddress, history }) {
               <FixedPanel onClick={() => history.push(`/token/${token1?.id}`)}>
                 <RowFixed>
                   <TokenLogo address={token1?.id} size={'16px'} />
+                 {/* TODO Check Derived ETH */}
+                 
                   <TYPE.main fontSize={'16px'} lineHeight={1} fontWeight={500} ml={'4px'}>
                     {token0 && token1
                       ? `1 ${formattedSymbol1} = ${token1Rate} ${formattedSymbol0}  ${
