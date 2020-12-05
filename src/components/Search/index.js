@@ -151,10 +151,10 @@ const Blue = styled.span`
 `
 
 export const Search = ({ small = false }) => {
-  let allTokens = useAllTokensInUniswap()
+  let allTokens = useAllTokensInStableXswap()
   const allTokenData = useAllTokenData()
 
-  let allPairs = useAllPairsInUniswap()
+  let allPairs = useAllPairsInStableXswap()
   const allPairData = useAllPairData()
 
   const [showMenu, toggleMenu] = useState(false)
