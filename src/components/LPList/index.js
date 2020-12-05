@@ -154,11 +154,7 @@ function LPList({ lps, disbaleLinks, maxItems = 10 }) {
         <Flex alignItems="center" justifyContent="flex-start">
           <TYPE.main area="name">Account</TYPE.main>
         </Flex>
-        {/* {!below1080 && (
-          <Flex alignItems="center" justifyContent="flexEnd">
-            <TYPE.main area="type">Type</TYPE.main>
-          </Flex>
-        )} */}
+     
         <Flex alignItems="center" justifyContent="flexEnd">
           <TYPE.main area="pair">Pair</TYPE.main>
         </Flex>
