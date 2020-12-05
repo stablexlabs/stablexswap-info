@@ -1,3 +1,4 @@
+// We do not have Google Analytics set up yet: To-Do!
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactGA from 'react-ga'
