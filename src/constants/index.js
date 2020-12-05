@@ -1,7 +1,7 @@
 // This is the official StableXswap Factory Address on Binance Smart Chain Mainnet
 export const FACTORY_ADDRESS = '0x918d7e714243F7d9d463C37e106235dCde294ffC'
-
-export const BUNDLE_ID = '1'
+// Check if BUNDLEID is mainnet
+export const BUNDLE_ID = '56'
 
 
 // So far most of these addresses are not needed
