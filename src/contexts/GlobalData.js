@@ -26,8 +26,8 @@ const UPDATE_TXNS = 'UPDATE_TXNS'
 const UPDATE_CHART = 'UPDATE_CHART'
 const UPDATE_ETH_PRICE = 'UPDATE_ETH_PRICE'
 const ETH_PRICE_KEY = 'ETH_PRICE_KEY'
-const UPDATE_ALL_PAIRS_IN_UNISWAP = 'UPDAUPDATE_ALL_PAIRS_IN_UNISWAPTE_TOP_PAIRS'
-const UPDATE_ALL_TOKENS_IN_UNISWAP = 'UPDATE_ALL_TOKENS_IN_UNISWAP'
+const UPDATE_ALL_PAIRS_IN_STABLEXSWAP = 'UPDATE_ALL_PAIRS_IN_STABLEXSWAP_TOP_PAIRS'
+const UPDATE_ALL_TOKENS_IN_STABLEXSWAP = 'UPDATE_ALL_TOKENS_IN_STABLEXSWAP'
 const UPDATE_TOP_LPS = 'UPDATE_TOP_LPS'
 
 // format dayjs with the libraries that we need
@@ -75,7 +75,7 @@ function reducer(state, { type, payload }) {
       }
     }
 
-    case UPDATE_ALL_PAIRS_IN_UNISWAP: {
+    case UPDATE_ALL_PAIRS_IN_STABLEXSWAP: {
       const { allPairs } = payload
       return {
         ...state,
@@ -83,7 +83,7 @@ function reducer(state, { type, payload }) {
       }
     }
 
-    case UPDATE_ALL_TOKENS_IN_UNISWAP: {
+    case UPDATE_ALL_TOKENS_IN_STABLEXSWAP: {
       const { allTokens } = payload
       return {
         ...state,
@@ -145,18 +145,18 @@ export default function Provider({ children }) {
     })
   }, [])
 
-  const updateAllPairsInUniswap = useCallback((allPairs) => {
+  const updateAllPairsInStableXswap = useCallback((allPairs) => {
     dispatch({
-      type: UPDATE_ALL_PAIRS_IN_UNISWAP,
+      type: UPDATE_ALL_PAIRS_IN_STABLEXSWAP,
       payload: {
         allPairs,
       },
     })
   }, [])
 
-  const updateAllTokensInUniswap = useCallback((allTokens) => {
+  const updateAllTokensInStableXswap = useCallback((allTokens) => {
     dispatch({
-      type: UPDATE_ALL_TOKENS_IN_UNISWAP,
+      type: UPDATE_ALL_TOKENS_IN_STABLEXSWAP,
       payload: {
         allTokens,
       },
@@ -182,8 +182,8 @@ export default function Provider({ children }) {
             updateChart,
             updateEthPrice,
             updateTopLps,
-            updateAllPairsInUniswap,
-            updateAllTokensInUniswap,
+            updateAllPairsInStableXswap,
+            updateAllTokensInStableXswap,
           },
         ],
         [
@@ -193,8 +193,8 @@ export default function Provider({ children }) {
           updateTopLps,
           updateChart,
           updateEthPrice,
-          updateAllPairsInUniswap,
-          updateAllTokensInUniswap,
+          updateAllPairsInStableXswap,
+          updateAllTokensInStableXswap,
         ]
       )}
     >
@@ -529,7 +529,7 @@ async function getAllTokensOnUniswap() {
  * Hook that fetches overview data, plus all tokens and pairs for search
  */
 export function useGlobalData() {
-  const [state, { update, updateAllPairsInUniswap, updateAllTokensInUniswap }] = useGlobalDataContext()
+  const [state, { update, updateAllPairsInStableXswap, updateAllTokensInStableXswap }] = useGlobalDataContext()
   const [ethPrice, oldEthPrice] = useEthPrice()
 
   const data = state?.globalData
@@ -540,15 +540,15 @@ export function useGlobalData() {
       globalData && update(globalData)
 
       let allPairs = await getAllPairsOnUniswap()
-      updateAllPairsInUniswap(allPairs)
+      updateAllPairsInStableXswap(allPairs)
 
       let allTokens = await getAllTokensOnUniswap()
-      updateAllTokensInUniswap(allTokens)
+      updateAllTokensInStableXswap(allTokens)
     }
     if (!data && ethPrice && oldEthPrice) {
       fetchData()
     }
-  }, [ethPrice, oldEthPrice, update, data, updateAllPairsInUniswap, updateAllTokensInUniswap])
+  }, [ethPrice, oldEthPrice, update, data, updateAllPairsInStableXswap, updateAllTokensInStableXswap])
 
   return data || {}
 }

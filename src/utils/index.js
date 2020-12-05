@@ -67,11 +67,11 @@ export function getSwapLink(token0Address, token1Address = null) {
 
 export function getMiningPoolLink(token0Address) {
   return `https://stablexswap.com`
-
+  // simplifying for now to just go to the homepage
   // return `https://app.uniswap.org/#/uni/ETH/${token0Address}`
 }
 
-export function getUniswapAppLink(linkVariable) {
+export function getStableXswapAppLink(linkVariable) {
   let baseUniswapUrl = 'https://trade.stablexswap.com'
   if (!linkVariable) {
     return baseUniswapUrl

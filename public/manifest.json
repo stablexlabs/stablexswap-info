@@ -1,6 +1,6 @@
 {
-  "short_name": "Uniswap Info",
-  "name": "View statistics for Uniswap exchanges.",
+  "short_name": "StableXswap Info",
+  "name": "View statistics for StableXswap exchanges.",
   "icons": [
     {
       "src": "favicon.ico",
